@@ -1,0 +1,10 @@
+.headlineholder{    
+    overflow: auto;/*Margin colapse is retarded*/
+}
+
+.headline{
+    margin: 0 auto;
+    margin-top: 50%;
+    color: #4A90E2;
+    width: 50%;
+}
