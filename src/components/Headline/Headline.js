@@ -8,7 +8,9 @@ class Headline extends Component{
     render(){
         return(
             <div className="headlineholder">
-                <p className="headline"><span>Going</span><FontAwesomeIcon icon={faArrowUp}/><span>?</span></p>
+                <h1 className="headline">GOING <FontAwesomeIcon icon={faArrowUp}/> ?</h1>
+                <p className="subtitle">Then you found your starting point.</p>
+                <button className="button"><span>Discover </span></button>
             </div>
         );
     }

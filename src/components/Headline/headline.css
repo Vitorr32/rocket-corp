@@ -1,10 +1,82 @@
-.headlineholder{    
-    overflow: auto;/*Margin colapse is retarded*/
+.headlineholder{   
+    padding-top: 1px;
+    margin-top: -1px;    
+    margin-left: 20px;
 }
 
-.headline{
+.headline{    
+    left: 0;
     margin: 0 auto;
-    margin-top: 50%;
-    color: #4A90E2;
-    width: 50%;
+    color: #ffffff;    
+    margin-top: 20vh;    
+    font-size: 10vw;
 }
+
+@media screen and (max-width: 600px) {
+  .headline {
+    margin-top: 33vh;
+    width: 100%;
+    font-size: 58px;
+    margin-bottom: 10px;
+  }
+}
+
+.subtitle{
+    left: 0;
+    margin: 0 auto;
+    color: #ffffff;  
+    font-size: 5vw;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .subtitle {
+    width: 100%;
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+}
+
+svg{
+    color: #4A90E2;
+    margin: 0 auto;
+}
+
+.button {
+    border-radius: 4px;
+    background-color: #4A90E2;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

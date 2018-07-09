@@ -29,7 +29,14 @@
     background: #4A90E2;
     font-size: 1.15em;
   }
-  
+
+/* Can't override the component size for some reason
+  @media screen and (max-width: 500px) {
+    .bm-menu-wrap{
+      width: 100%;
+    }
+  }
+  */
   /* Morph shape necessary with bubble or elastic */
   .bm-morph-shape {
     fill: #4A90E2;
