@@ -3,14 +3,16 @@ import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import {contentChange} from '../../redux/actions';
+import {Animated} from "react-animated-css";
 
 import './slideshow.css';
 
 const mapStateToProps = state =>{
     return {
+        centerSlide: state.slideshow.centerSlide,
         isLoading : state.slideshow.isLoading,
-        centerSlide : state.slideshow.centerSlide,
         slideshowcontent : state.slideshow.slideshowcontent,
+        browser : state.browser,
     };
 }
 
@@ -23,29 +25,39 @@ const mapDispatchToProps = (dispatch) =>{
 class Slideshow extends Component{
 
     renderingSlideshows(){
-        //This should migrate to the back end when it is made, too ugly here
-        const {slideshowcontent,isLoading,centerSlide} = this.props;
-        
-        if(isLoading) return;
-        const first, middle = slideshowcontent[centerSlide], last;
-        
-        //The center slide is the last slide
-        if(centerSlide + 1> slideshowcontent.lenght){
-            first = slideshowcontent[centerSlide - 1],
-            last = slideshowcontent[0]
+        const {slideshowcontent,browser} = this.props;
+
+        const toRender = slideshowcontent.map( (slide,iter) =>{
+            return(
+                <Animated key={`slide${iter}`} className="slide" animationIn="flipInY" isVisible={true}>
+                    <img className="slideImg" src={slide.image} alt=""/>
+                    <h1 className="slideTitle">{slide.title}</h1>
+                    <hr/>
+                    <p className="slideContent">{slide.content}</p>
+                </Animated>
+            );
+        });        
+        if(browser.lessThan.large){
+            toRender.pop();
         }
+        if(browser.lessThan.medium){
+            toRender.shift();
+        }
+        return toRender;
     }
-
-
+    
     render(){
-        return (
-            <div>
-                <span><FontAwesomeIcon icon={faArrowLeft}/></span>
-                {/*this.renderingSlideshows()*/}
-                <span><FontAwesomeIcon icon={faArrowRight}/></span>
-            </div>
         
-        );
+        return this.props.isLoading
+        ?   <div className="slidesHolder">
+                <a className="arrow left"><FontAwesomeIcon icon={faArrowLeft}/></a>
+                <a className="arrow rigth"><FontAwesomeIcon icon={faArrowRight}/></a>
+            </div>
+        :   <div className="slidesHolder">
+                <a onClick={ () => this.props.onContentChange(this.props.centerSlide - 1)} className="arrow left"><FontAwesomeIcon icon={faArrowLeft}/></a>
+                {this.renderingSlideshows()}
+                <a onClick={ () => this.props.onContentChange(this.props.centerSlide + 1)} className="arrow rigth"><FontAwesomeIcon icon={faArrowRight}/></a>
+             </div>
     }
 }
 

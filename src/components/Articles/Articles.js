@@ -7,15 +7,15 @@ class Articles extends Component{
         return(
             <div className="articleholder">
                 <div className="article">
-                    <p className="articletext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo nibh nunc, vitae convallis sapien sodales quis. Proin fringilla arcu non ipsum euismod, et hendrerit nisl tristique.</p>
+                    <p className="articletext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo nibh nunc, vitae convallis sapien sodales quis.</p>
                     <a href="article" className="knowmore">Know More >></a>
                 </div>
                 <div className="article">
-                    <p className="articletext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo nibh nunc, vitae convallis sapien sodales quis. Proin fringilla arcu non ipsum euismod, et hendrerit nisl tristique.</p>
+                    <p className="articletext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo nibh nunc, vitae convallis sapien sodales quis.</p>
                     <a href="article" className="knowmore">Know More >></a>   
                 </div>
                 <div className="article">
-                    <p className="articletext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo nibh nunc, vitae convallis sapien sodales quis. Proin fringilla arcu non ipsum euismod, et hendrerit nisl tristique.</p>
+                    <p className="articletext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo nibh nunc, vitae convallis sapien sodales quis.</p>
                     <a href="article" className="knowmore">Know More >></a>
                 </div>
                 </div>

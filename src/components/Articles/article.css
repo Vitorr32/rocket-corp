@@ -19,10 +19,9 @@
 }
 
 .articletext{
-    height: 80px;
+    height: 70px;
     color: #ffffff;
     overflow: hidden;    
-    text-overflow: ellipsis;
 }
 
 .article + .article{

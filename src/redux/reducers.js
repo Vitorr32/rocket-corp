@@ -1,5 +1,5 @@
 //Reducers for Redux
-import {CONTENT_CHANGE_FAILED,CONTENT_CHANGE_PENDING,CONTENT_CHANGE_SUCESS} from './constants';
+import {CONTENT_CHANGE_FAILED,CONTENT_CHANGE_PENDING,CONTENT_CHANGE_SUCESS,CONTENT_CHANGE_SET} from './constants';
 import {combineReducers} from 'redux'
 import {responsiveStateReducer} from 'redux-responsive'
 import {reducer as burgerMenu} from 'redux-burger-menu';
@@ -13,8 +13,10 @@ const initialStateContent = {
 
 export const slideshowcontent = (state = initialStateContent, action = {}) => {
     switch(action.type){
+        case CONTENT_CHANGE_SET:
+            return Object.assign({}, state , {centerSlide : action.payload});
         case CONTENT_CHANGE_PENDING:
-            return Object.assign({}, state , {isLoading : true, centerSlide : action.payload});
+            return Object.assign({}, state , {isLoading : true});
         case CONTENT_CHANGE_SUCESS:
             return Object.assign({}, state , {slideshowcontent: action.payload, isLoading : false});
         case CONTENT_CHANGE_FAILED:

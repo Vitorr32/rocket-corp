@@ -5,3 +5,9 @@
   background-size: cover;
   background-position: center;
 }
+
+.sessionTitle{
+  text-align: center;
+  font-size: 36px;
+  color: #4A90E2;
+}
