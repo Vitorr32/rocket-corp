@@ -52,6 +52,7 @@
   
   /* Individual item */
   .bm-item {
+    cursor: pointer;
     font-size: 36px;
     margin: 10px auto;
     text-decoration: none;    

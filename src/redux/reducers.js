@@ -1,5 +1,5 @@
 //Reducers for Redux
-import {CONTENT_CHANGE_FAILED,CONTENT_CHANGE_PENDING,CONTENT_CHANGE_SUCESS,CONTENT_CHANGE_SET} from './constants';
+import {CONTENT_CHANGE_FAILED,CONTENT_CHANGE_PENDING,CONTENT_CHANGE_SUCESS,CONTENT_CHANGE_SET,ROUTE_CHANGE} from './constants';
 import {combineReducers} from 'redux'
 import {responsiveStateReducer} from 'redux-responsive'
 import {reducer as burgerMenu} from 'redux-burger-menu';
@@ -30,16 +30,18 @@ const initialStateRoute = {
     route : 'home'
 }
 
-export const changeRoute  = (state = initialStateRoute, action = {}) =>{
+export const routing  = (state = initialStateRoute, action = {}) =>{
     switch(action.type){
+        case ROUTE_CHANGE:
+            return Object.assign({}, state , {route : action.payload});
         default:
             return state;
     }
 }
 
-export default combineReducers({
+export default combineReducers({    
+    routing : routing,
     browser: responsiveStateReducer,
     slideshow: slideshowcontent,
     burgerMenu : burgerMenu,
-    changeRoute : changeRoute
 })

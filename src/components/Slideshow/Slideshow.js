@@ -24,6 +24,10 @@ const mapDispatchToProps = (dispatch) =>{
 
 class Slideshow extends Component{
 
+    componentWillMount(){
+        this.props.onContentChange(1);
+    } 
+
     renderingSlideshows(){
         const {slideshowcontent,browser} = this.props;
 
@@ -45,18 +49,26 @@ class Slideshow extends Component{
         }
         return toRender;
     }
+
+    nextSlide(){
+        return this.props.onContentChange(this.props.centerSlide + 1);
+    }
+
+    previousSlide(){
+        return this.props.onContentChange(this.props.centerSlide - 1);
+    }
     
     render(){
         
-        return this.props.isLoading
+        return this.props.isLoading || Object.keys(this.props.slideshowcontent).length === 0
         ?   <div className="slidesHolder">
                 <a className="arrow left"><FontAwesomeIcon icon={faArrowLeft}/></a>
                 <a className="arrow rigth"><FontAwesomeIcon icon={faArrowRight}/></a>
             </div>
         :   <div className="slidesHolder">
-                <a onClick={ () => this.props.onContentChange(this.props.centerSlide - 1)} className="arrow left"><FontAwesomeIcon icon={faArrowLeft}/></a>
+                <a onClick={ this.nextSlide} className="arrow left"><FontAwesomeIcon icon={faArrowLeft}/></a>
                 {this.renderingSlideshows()}
-                <a onClick={ () => this.props.onContentChange(this.props.centerSlide + 1)} className="arrow rigth"><FontAwesomeIcon icon={faArrowRight}/></a>
+                <a onClick={ this.previousSlide} className="arrow rigth"><FontAwesomeIcon icon={faArrowRight}/></a>
              </div>
     }
 }

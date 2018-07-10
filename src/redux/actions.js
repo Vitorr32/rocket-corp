@@ -1,4 +1,4 @@
-import {CONTENT_CHANGE_FAILED,CONTENT_CHANGE_PENDING,CONTENT_CHANGE_SUCESS,CONTENT_CHANGE_SET} from './constants';
+import {CONTENT_CHANGE_FAILED,CONTENT_CHANGE_PENDING,CONTENT_CHANGE_SUCESS,CONTENT_CHANGE_SET,ROUTE_CHANGE} from './constants';
 
 export const contentChange = (value) => (dispatch) => { 
     dispatch({type: CONTENT_CHANGE_PENDING});
@@ -35,3 +35,8 @@ export const contentChange = (value) => (dispatch) => {
         .catch(error => dispatch({type : CONTENT_CHANGE_FAILED, payload: error}));
     
 }
+
+export const newRouting = (route) =>({
+    type : ROUTE_CHANGE,
+    payload : route,    
+})

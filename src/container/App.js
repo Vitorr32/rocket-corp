@@ -5,27 +5,18 @@ import Headline from '../components/Headline/Headline';
 import Articles from '../components/Articles/Articles';
 import Slideshow from '../components/Slideshow/Slideshow';
 import CurrentProject from '../components/CurrentProject/CurrentProject';
-import {contentChange} from '../redux/actions';
+import Footer from '../components/Footer/Footer';
+import AboutUs from '../components/AboutUs/AboutUs';
 import WOW from 'wowjs';
 import './App.css';
 
 const mapStateToProps = state =>{
     return {
-      browser : state.browser.mediaType
+      route: state.routing.route
     };
 }
 
-const mapDispatchToProps = (dispatch) =>{
-  return {
-    onContentChange : (value) =>dispatch(contentChange(value))
-  };
-}
-
 class App extends Component {
-
-  componentWillMount(){
-    this.props.onContentChange(1);
-  } 
 
   componentDidMount() {
       new WOW.WOW({
@@ -34,25 +25,36 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <div className="overthefold">
+    if(this.props.route === 'home'){
+      return (
+        <div>
+          <div className="overthefold">
+            <Menu/>
+            <Headline/>
+            <Articles/>
+          </div>
+          <div className="wow bounceInUp">
+            <h1 className="sessionTitle">See our history</h1>  
+            <Slideshow/>
+          </div>
+          <div>          
+            <h1 className="sessionTitle wow fadeInLeft">What's coming next</h1>
+            <CurrentProject />
+          </div>
+          <Footer/>
+        </div>
+      );
+    }
+    else if (this.props.route === 'about'){
+      return(
+        <div>
           <Menu/>
-          <Headline/>
-          <Articles/>
+          <AboutUs/>
+          <Footer/>
         </div>
-        <div className="wow bounceInUp">
-          <h1 className="sessionTitle">See our history</h1>  
-          <Slideshow/>
-        </div>
-        <div>          
-          <h1 className="sessionTitle wow fadeInLeft">What's coming next</h1>
-          <CurrentProject />
-        </div>
-
-      </div>
-    );
+      );
+    }
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

@@ -1,0 +1,57 @@
+.aboutusholder{
+    padding-top: 1px;
+    margin-top: -1px;  
+    background: #D3CCE3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.rocketholder{
+    padding-top: 30px;
+    margin: 0px auto;
+    width: 90%;
+}
+
+.designerholder{
+    padding: 30px 0px;
+    margin: 0px auto;
+    width: 90%;
+}
+
+.title{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 24px;
+    color: #4A90E2;
+}
+
+.aboutrocket{
+    width: 25%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+.aboutdesigner{
+    width: 25%;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    float: right;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 600px) {
+    .aboutrocket {
+        width: 100%;
+    }
+    .aboutdesigner{
+        width: 100%;
+    }
+}
+
+.description{    
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: justify;
+    color: #505050;
+}

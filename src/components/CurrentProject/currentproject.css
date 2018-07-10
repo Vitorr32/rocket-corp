@@ -17,6 +17,13 @@
     float: left;
 }
 
+@media screen and (max-width: 600px) {
+    .projectImage {
+        width: 100%;
+    }
+}
+
+
 .projectContent{
     text-align: justify;
     text-indent: 2em;
