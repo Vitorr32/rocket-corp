@@ -66,9 +66,9 @@ class Slideshow extends Component{
                 <a className="arrow rigth"><FontAwesomeIcon icon={faArrowRight}/></a>
             </div>
         :   <div className="slidesHolder">
-                <a onClick={ this.nextSlide} className="arrow left"><FontAwesomeIcon icon={faArrowLeft}/></a>
+                <a onClick={() => this.nextSlide()} className="arrow left"><FontAwesomeIcon icon={faArrowLeft}/></a>
                 {this.renderingSlideshows()}
-                <a onClick={ this.previousSlide} className="arrow rigth"><FontAwesomeIcon icon={faArrowRight}/></a>
+                <a onClick={() => this.previousSlide()} className="arrow rigth"><FontAwesomeIcon icon={faArrowRight}/></a>
              </div>
     }
 }
